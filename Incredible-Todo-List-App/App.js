@@ -14,17 +14,20 @@ import ToDoList from "./components/ToDoList";
 import ToDoForm from "./components/ToDoForm";
 
 function App() {
-
   const [tasks, setTasks] = useState([
     "Do laundry",
     "Go for a walk",
     "Walk the dog",
   ]);
 
+  const addTask = (task) => {
+    setTasks([...tasks, task]);
+  };
+
   return (
     <SafeAreaView>
-      <ToDoList  tasks={tasks} />
-      <ToDoForm />
+      <ToDoList tasks={tasks} />
+      <ToDoForm addTask={addTask} />
     </SafeAreaView>
   );
 }
